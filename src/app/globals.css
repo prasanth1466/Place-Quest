@@ -1,0 +1,476 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* =============================================
+   PLACEQUEST DESIGN SYSTEM — Cybernetic Glass & Telemetry
+   Fonts: Plus Jakarta Sans (headings) · Manrope (body) · Space Grotesk (labels)
+   Palette: Indigo #6366f1 · Violet #8b5cf6 · Blue #3b82f6
+   ============================================= */
+
+@layer base {
+  :root {
+    /* Light Mode Surfaces */
+    --background: #f4f6fb;
+    --foreground: #0f172a;
+    --card: #ffffff;
+    --card-foreground: #0f172a;
+    --border: rgba(99, 102, 241, 0.16);
+    --muted: #eef1f8;
+    --muted-foreground: #64748b;
+    --surface-1: #ffffff;
+    --surface-2: #f8fafc;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-card: rgba(255, 255, 255, 0.88);
+    --glass-card-sub: rgba(244, 246, 251, 0.85);
+    --glass-border: rgba(99, 102, 241, 0.18);
+    --glass-border-sub: rgba(99, 102, 241, 0.12);
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.2);
+    --secondary: #8b5cf6;
+    --secondary-glow: rgba(139, 92, 246, 0.2);
+    --tertiary: #3b82f6;
+    --page-gradient: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.12) 0%, transparent 60%),
+                     radial-gradient(ellipse 50% 30% at 80% 40%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+                     #f4f6fb;
+  }
+
+  .dark {
+    /* Dark Mode Surfaces — Cybernetic Glass */
+    --background: #090d16;
+    --foreground: #f8fafc;
+    --card: #0f172a;
+    --card-foreground: #f8fafc;
+    --border: rgba(99, 102, 241, 0.2);
+    --muted: #131d31;
+    --muted-foreground: #94a3b8;
+    --surface-1: #0f172a;
+    --surface-2: #131d31;
+    --glass-bg: rgba(9, 13, 22, 0.85);
+    --glass-card: rgba(19, 29, 49, 0.7);
+    --glass-card-sub: rgba(10, 15, 26, 0.65);
+    --glass-border: rgba(99, 102, 241, 0.22);
+    --glass-border-sub: rgba(99, 102, 241, 0.18);
+    --primary: #6366f1;
+    --primary-glow: rgba(99, 102, 241, 0.3);
+    --secondary: #8b5cf6;
+    --secondary-glow: rgba(139, 92, 246, 0.35);
+    --tertiary: #3b82f6;
+    --page-gradient: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+                     radial-gradient(ellipse 50% 30% at 80% 40%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                     #090d16;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* ============================================= 
+   THEME ADAPTIVE GLASSMORPHISM
+   ============================================= */
+
+.page-theme-bg {
+  background: var(--page-gradient);
+  color: var(--foreground);
+}
+
+.glass-card-theme {
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.glass-card-sub-theme {
+  background: var(--glass-card-sub);
+  border: 1px solid var(--glass-border-sub);
+}
+
+.glass-1 {
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-2 {
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.glass-3 {
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+/* ============================================= 
+   GRADIENT SYSTEM
+   ============================================= */
+
+/* Background gradients */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+}
+
+.bg-gradient-brand-alt {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #3b82f6 100%);
+}
+
+.bg-gradient-dark-hero {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 40% at 80% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+              #090d16;
+}
+
+.bg-gradient-dark-section {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.0) 0%, rgba(15, 23, 42, 0.5) 100%);
+}
+
+.bg-gradient-interview {
+  background: linear-gradient(135deg, #1e1b4b 0%, #2e1065 50%, #0f172a 100%);
+}
+
+.bg-gradient-emerald {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.bg-gradient-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+/* Text gradients */
+.text-gradient-brand {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, #8b5cf6 0%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyber {
+  background: linear-gradient(135deg, #38bdf8 0%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================= 
+   BUTTON SYSTEM
+   ============================================= */
+
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: #ffffff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.45), 0 4px 12px rgba(99, 102, 241, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: rgba(19, 29, 49, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #f8fafc;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  transition: all 0.2s ease-out;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(139, 92, 246, 0.6);
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.15);
+}
+
+.dark .btn-secondary {
+  background: rgba(19, 29, 49, 0.5);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+/* Light mode secondary button */
+:not(.dark) .btn-secondary {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #0f172a;
+}
+
+:not(.dark) .btn-secondary:hover {
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #94a3b8;
+  transition: all 0.15s ease;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+}
+
+.btn-ghost:hover {
+  color: #f8fafc;
+  background: rgba(99, 102, 241, 0.08);
+}
+
+/* ============================================= 
+   CARD SYSTEM
+   ============================================= */
+
+.card-glass {
+  background: rgba(19, 29, 49, 0.65);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.25s ease-out;
+}
+
+.dark .card-glass {
+  background: rgba(19, 29, 49, 0.65);
+}
+
+:not(.dark) .card-glass {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+.card-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.4), transparent);
+  opacity: 0.8;
+}
+
+.card-glass:hover {
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 0 24px -4px rgba(99, 102, 241, 0.25), 0 8px 32px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.card-solid {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease-out;
+}
+
+.card-solid:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.15);
+}
+
+/* ============================================= 
+   BADGE & CHIP SYSTEM
+   ============================================= */
+
+.badge-xp {
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.4);
+  color: #c4b5fd;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.badge-telemetry {
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  color: #93c5fd;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.badge-streak {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fcd34d;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #6ee7b7;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background: rgba(99, 102, 241, 0.12);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  color: #a5b4fc;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+}
+
+/* ============================================= 
+   GLOW EFFECTS
+   ============================================= */
+
+.glow-primary {
+  box-shadow: 0 0 24px -4px rgba(99, 102, 241, 0.25);
+}
+
+.glow-secondary {
+  box-shadow: 0 0 32px 0 rgba(139, 92, 246, 0.35);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 16px -2px rgba(59, 130, 246, 0.4);
+}
+
+/* ============================================= 
+   PROGRESS & INDICATORS
+   ============================================= */
+
+.progress-bar-gradient {
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 60%, #3b82f6 100%);
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+
+/* ============================================= 
+   TECH PATTERN BACKGROUND
+   ============================================= */
+
+.bg-tech-pattern {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .bg-tech-pattern {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* ============================================= 
+   SCROLLBAR
+   ============================================= */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.25);
+}
+
+/* ============================================= 
+   UTILITY OVERRIDES
+   ============================================= */
+
+.font-display {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-body {
+  font-family: 'Manrope', sans-serif;
+}
+
+.font-label {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Active nav indicator */
+.nav-link-active {
+  background: rgba(99, 102, 241, 0.1);
+  color: #a5b4fc;
+  border-bottom: 2px solid #6366f1;
+}
+
+/* Gradient border */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.3), rgba(59, 130, 246, 0.5));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.gradient-border:hover::after {
+  opacity: 1;
+}
+
+/* Selected domain ring */
+.domain-selected {
+  border-color: #6366f1 !important;
+  box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.4), 0 0 20px rgba(99, 102, 241, 0.2);
+}
